@@ -79,6 +79,9 @@ public class MovieListActivity extends AppCompatActivity {
         HashMap<String, String> param = new HashMap<>();
         JSONObject parameters = new JSONObject(param);
 
+
+
+
         if (Connectivity.isConnected(this)) {
             CustomProgressDialog.showDialog(this, "Loading....");
             JsonObjectRequest req = new JsonObjectRequest(Request.Method.POST, IUrls.GET_LIST + "b7cd3340a794e5a2f35e3abb820b497f", parameters,
