@@ -7,9 +7,6 @@ import android.support.v7.app.AlertDialog;
 
 import com.demo.R;
 
-/**
- * Created by root on 6/24/16.
- */
 public class CustomProgressDialog {
 
      static ProgressDialog dialog;
@@ -19,7 +16,6 @@ public class CustomProgressDialog {
         dialog.setMessage(message);
         dialog.setIndeterminate(true);
         dialog.setIndeterminateDrawable(context.getResources().getDrawable(R.drawable.circular_progress_dialog));
-//        dialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
         dialog.setCancelable(false);
         dialog.show();
 
@@ -27,7 +23,6 @@ public class CustomProgressDialog {
 
     public static void dismissDialog(Context context){
        if(dialog.isShowing()) {
-//           dialog.hide();
            dialog.dismiss();
        }
 
