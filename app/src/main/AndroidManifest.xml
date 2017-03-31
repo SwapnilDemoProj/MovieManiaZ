@@ -22,11 +22,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ProfileActivity"></activity>
-        <activity android:name=".LoginActivity"></activity>
-        <activity android:name=".BillActivity"></activity>
-        <activity android:name=".SuggestionActivity"></activity>
         <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MovieDetailActivity"></activity>
+        <activity android:name=".DeveloperInfoActivity"></activity>
     </application>
 
 </manifest>

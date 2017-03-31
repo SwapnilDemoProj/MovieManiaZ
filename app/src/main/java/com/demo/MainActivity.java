@@ -17,8 +17,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
-        ((Button)findViewById(R.id.login)).setOnClickListener(this);
-        ((Button)findViewById(R.id.profile)).setOnClickListener(this);
+
 
     }
 
@@ -26,12 +25,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.login:
-                Intent i = new Intent(this,LoginActivity.class);
-                startActivity(i);
+
                 break;
             case R.id.profile:
-                Intent i1 = new Intent(this,ProfileActivity.class);
-                startActivity(i1);
+
                 break;
         }
     }

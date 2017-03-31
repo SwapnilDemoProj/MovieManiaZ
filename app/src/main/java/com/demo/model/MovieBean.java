@@ -22,7 +22,7 @@ public class MovieBean implements Serializable {
     private Double popularity;
     private Long vote_count;
     private Boolean video;
-    private Double vote_average;
+    private Float vote_average;
 
     public String getPoster_path() {
         return poster_path;
@@ -128,11 +128,11 @@ public class MovieBean implements Serializable {
         this.video = video;
     }
 
-    public Double getVote_average() {
+    public Float getVote_average() {
         return vote_average;
     }
 
-    public void setVote_average(Double vote_average) {
+    public void setVote_average(Float vote_average) {
         this.vote_average = vote_average;
     }
 }

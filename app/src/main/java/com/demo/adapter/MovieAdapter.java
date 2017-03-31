@@ -11,7 +11,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.demo.MovieDetailActivity;
 import com.demo.R;
 import com.demo.constants.CustomProgressDialog;
 import com.demo.constants.IUrls;
@@ -51,19 +53,12 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
             tvTitle = (TextView) v.findViewById(R.id.tvTitle);
             tvRelease = (TextView) v.findViewById(R.id.tvReleaseDate);
             tvCertificate = (TextView) v.findViewById(R.id.tvCertificate);
-
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-
-/*
-                    Intent newIntent= new Intent(v.getContext(),WallPaperDetailActivity.class);
-
-                    newIntent.putExtra("WallPaper",imagesList.get(postion));
-
-
-                    v.getContext().startActivity(newIntent);
-*/
+                    Intent newIntent = new Intent(v.getContext(), MovieDetailActivity.class);
+                    newIntent.putExtra("Detail", list.get(postion));
+                    context.startActivity(newIntent);
 
                 }
             });
@@ -118,8 +113,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.MyViewHolder
         Picasso.with(context)
                 .load(IUrls.IMAGE_BASE + movieBean.getPoster_path())
                 .placeholder(R.drawable.circular_progress_dialog)
-                .resize(100,170)
-                .centerCrop()
+                .fit()
                 .into(holder.imgPoster);
     }
 

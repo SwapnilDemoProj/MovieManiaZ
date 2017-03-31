@@ -1,5 +1,7 @@
 package com.demo;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +9,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Base64;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 
 import com.android.volley.AuthFailureError;
@@ -57,9 +62,9 @@ public class MovieListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_movie);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setTitleTextColor(Color.WHITE);
         setSupportActionBar(toolbar);
         getSupportActionBar().setTitle("Movie List");
-
         mRecyclerView = (RecyclerView) findViewById(R.id.recycler_view);
         pageNumber = 1;
         movieList = new ArrayList<MovieBean>();
@@ -78,8 +83,6 @@ public class MovieListActivity extends AppCompatActivity {
 
         HashMap<String, String> param = new HashMap<>();
         JSONObject parameters = new JSONObject(param);
-
-
 
 
         if (Connectivity.isConnected(this)) {
@@ -132,6 +135,25 @@ public class MovieListActivity extends AppCompatActivity {
             mAdapter = new MovieAdapter(movieList, MovieListActivity.this);
             mRecyclerView.setAdapter(mAdapter);
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_info, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId()) {
+            case R.id.action_info:
+                Intent i = new Intent(this, DeveloperInfoActivity.class);
+                startActivity(i);
+                break;
+        }
+        return true;
     }
 
 }
